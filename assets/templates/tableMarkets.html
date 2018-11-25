@@ -1,0 +1,57 @@
+
+<table id="tableMarkets" width="100%">
+	<thead>
+		<tr>
+			<th class="text-left tdExpanded" ng-show="expandedAux">Show
+				<ng-include ng-repeat="item in [{'columnSelected':'Show'}]" src="'assets/templates/iconOrder.html'"></ng-include>
+			</th>
+			<th class="text-left">Market
+				<ng-include ng-repeat="item in [{'columnSelected':'MarketName'}]" src="'assets/templates/iconOrder.html'"></ng-include>
+			</th>
+			<th class="text-right tdExpanded" ng-show="expandedAux">Volume
+				<ng-include ng-repeat="item in [{'columnSelected':'Volume'}]" src="'assets/templates/iconOrder.html'"></ng-include>
+			</th>
+			<th class="text-right">Last
+				<ng-include ng-repeat="item in [{'columnSelected':'Last'}]" src="'assets/templates/iconOrder.html'"></ng-include>
+			</th>
+			<th class="text-right tdExpanded" ng-show="expandedAux">Max [24H]
+				<ng-include ng-repeat="item in [{'columnSelected':'High'}]" src="'assets/templates/iconOrder.html'"></ng-include>
+			</th>
+			<th class="text-right tdExpanded" ng-show="expandedAux">Min [24H]
+				<ng-include ng-repeat="item in [{'columnSelected':'Low'}]" src="'assets/templates/iconOrder.html'"></ng-include>
+			</th>
+			<th class="text-right tdExpanded" ng-show="expandedAux">Buy orders
+				<ng-include ng-repeat="item in [{'columnSelected':'OpenBuyOrders'}]" src="'assets/templates/iconOrder.html'"></ng-include>
+			</th>
+			<th class="text-right tdExpanded" ng-show="expandedAux">Sell orders
+				<ng-include ng-repeat="item in [{'columnSelected':'OpenSellOrders'}]" src="'assets/templates/iconOrder.html'"></ng-include>
+			</th>
+			<th class="text-right">Variation
+				<ng-include ng-repeat="item in [{'columnSelected':'Variation'}]" src="'assets/templates/iconOrder.html'"></ng-include>
+			</th>
+			<th class="text-right tdExpanded" ng-show="expandedAux">Created</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr 
+		class="item-market" 
+		ng-repeat="item in markets | customFilter: activeTab+'-' | customFilter : search"  
+		ng-class="{ selected : item.Show}" 
+		ng-click="clickMarket(item, false)">
+			<td class="tdExpanded" ng-show="expandedAux">
+				<md-checkbox ng-model="item.Show" aria-label="Finished?" style="margin-bottom: 1px"></md-checkbox>
+			</td>
+			<td>{{ item.MarketName }}</td>
+			<td class="text-right tdExpanded" ng-show="expandedAux">{{ item.Volume }}</td>
+			<td class="text-right">{{ item.Last }}</td>
+			<td class="text-right tdExpanded" ng-show="expandedAux">{{ item.High }}</td>
+			<td class="text-right tdExpanded" ng-show="expandedAux">{{ item.Low }}</td>
+			<td class="text-right tdExpanded" ng-show="expandedAux">{{ item.OpenBuyOrders }}</td>
+			<td class="text-right tdExpanded" ng-show="expandedAux">{{ item.OpenSellOrders }}</td>
+			<td class="text-right" 
+			ng-class=""
+				><span class="{{item.variation}} variation">{{ item | customFormat : 2 }}%</span></td>
+			<td class="text-right tdExpanded" ng-show="expandedAux">{{ item.Created }}</td>
+		</tr>
+	</tbody>
+</table>

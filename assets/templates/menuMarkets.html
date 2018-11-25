@@ -1,0 +1,44 @@
+
+<div 
+class="label" 
+layout="column" 
+layout-align="center center" 
+ng-class="{'active': activeTab==market}" 
+ng-repeat="market in marketsBase"
+>
+	<md-button 
+	ng-click="clickTab(market)" 
+	>{{market}}</md-button>
+</div>
+
+<div 
+class="label-option" 
+layout="column" 
+layout-align="center center" 
+>
+	<md-button ng-click="expandMarkets()">
+		<md-tooltip style="font-size: 16px">{{ expandedAux ? 'Contract markets' : 'Expand markets'}}</md-tooltip>
+		<md-icon ng_bind="'aspect_ratio'" style="color: white" ng-show="!expandedAux"></md-icon>
+		<md-icon ng_bind="'launch'" style="color: white; transform: rotate(180deg);" ng-show="expandedAux"></md-icon>
+	</md-button>
+</div>
+<div 
+class="label-option" 
+layout="column" 
+layout-align="center center" 
+>
+	<md-button ng-click="cleanMarkets()">
+		<md-tooltip style="font-size: 16px">Clean selections</md-tooltip>
+		<md-icon ng_bind="'delete'" style="color: white"></md-icon>
+	</md-button>
+</div>
+<div 
+class="label-option" 
+layout="column" 
+layout-align="center center" 
+>
+	<md-button ng-click="openSettings()">
+		<md-tooltip style="font-size: 16px">Settings</md-tooltip>
+		<md-icon ng_bind="'settings'" style="color: white"></md-icon>
+	</md-button>
+</div>

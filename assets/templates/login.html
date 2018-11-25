@@ -1,0 +1,30 @@
+
+    <div id="login" layout="row" layout-align="center center" ng-show="login">
+      <md-content class="md-padding white">
+         <div layout="row" layout-align="center center">
+            <div flex >
+              <div layout="row">
+                <md-input-container flex-xs=100 flex>
+                  <i class="fa fa-user fa-4x" style="color: #002a61"></i>
+                  <img src="assets/img/logo_ucm.gif" style="max-width: 140px">
+                </md-input-container>
+              </div>
+              <div layout="row">
+                 <md-input-container flex-xs=100 flex>
+                  <label>Nombre</label>
+                  <input type="text" ng-model="usuario.username" required>
+                </md-input-container>
+              </div>
+              <div layout="row">
+                <md-input-container flex-xs=100 flex>
+                  <label>Password</label>
+                  <input type="password" ng-model="usuario.password" required>
+                </md-input-container>
+              </div>
+              <div layout="row">
+                <md-button ng-click="login()" class="md-primary md-raised" style="background-color: #002a61" flex-xs=100 flex><i class="fa fa-send"></i> Ingresar</md-button>
+              </div>
+            </div>
+        </div>
+      </md-content>
+    </div>

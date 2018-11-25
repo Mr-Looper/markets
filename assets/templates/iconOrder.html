@@ -1,0 +1,7 @@
+
+
+
+
+<md-icon ng-click="orderColumn(item.columnSelected)" ng_bind="'arrow_drop_up'" class="icon-order" ng-show="currentOrder == item.columnSelected+'-Up'"></md-icon>
+<md-icon ng-click="orderColumn(item.columnSelected)" ng_bind="'arrow_drop_down'" class="icon-order" ng-show="currentOrder == item.columnSelected+'-Down'"></md-icon>
+<md-icon ng-click="orderColumn(item.columnSelected)" ng_bind="'crop_square'" class="icon-order" ng-show="currentOrder != item.columnSelected+'-Up' && currentOrder != item.columnSelected+'-Down'"></md-icon>

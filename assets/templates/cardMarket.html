@@ -1,0 +1,33 @@
+
+<md-card class="card-market">
+	<md-header style="">
+		<div layout=row>
+			<div flex=70><h5 class="card-title">{{visibleMarket.MarketName}} [Last: {{visibleMarket.Last}}]</h5></div>
+			
+			<div flex=30 style="text-align: right">
+				<span class="icon-button" ng-show="!visibleMarket.loading" ng-click="clickMarket(visibleMarket, true)">Update<md-icon ng-bind="'update'" class="icon-button"></span>
+				</md-icon>
+				<md-icon ng-bind="'close'" ng-click="removeMarket(visibleMarket)" class="icon-button">
+					<md-tooltip style="font-size: 16px">Close market</md-tooltip>
+				</md-icon>
+			</div>
+		</div>
+	</md-header>
+	<md-card-content class="content-card-market" layout-align="center center">
+		
+		<div layout=row>
+			<div flex=50>
+				<table class="table-card-market">
+					<thead><tr><th>Ask<md-icon ng-bind="'autorenew'" class="icon-update" ng-show="visibleMarket.loading"></md-icon></th></tr></thead>
+					<tbody><tr ng-repeat="asked in visibleMarket.Changes['Ask']"><td>{{asked}}</td></tr></tbody>
+				</table>
+			</div>
+			<div flex=50>
+				<table class="table-card-market">
+					<thead><tr><th>Bid<md-icon ng-bind="'autorenew'" class="icon-update" ng-show="visibleMarket.loading"></md-icon></th></tr></thead>
+					<tbody><tr ng-repeat="bided in visibleMarket.Changes['Bid']"><td>{{bided}}</td></tr></tbody>
+				</table>
+			</div>
+		</div>
+	</md-card-content>
+</md-card>

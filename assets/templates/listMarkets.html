@@ -1,0 +1,38 @@
+<div ng-include="'assets/templates/loading.html'" ng-show="loading"></div>
+
+
+<div id="listMarkets">
+	<div layout="row" layout-wrap  layout-sm="row" style="background-color: #353942">
+		<div flex=50 flex-xs=100 flex-sm=50 flex-md=34 flex-lg=25 flex-xl=20 class="full-height" id="containerMarkets" ng-class="{expanded : expanded}">
+
+			<div class="wrapper" ng-app="tabs" layout="row">
+				<md-sidenav md-is-locked-open="true" class="sidebar full-height" style="overflow-x: hidden; position: absolute;" ng-include src="'assets/templates/menuMarkets.html'">
+				</md-sidenav>
+
+				<div layout="column" style="width: 100%; background-color: #353942" class="content full-height">
+					<md-input-container style="margin: 15px 15px 0 15px; color: white" id="containerSearch">
+						<label>Search</label>
+						<input id="" ng-model="search" style="">
+					</md-input-container>
+		
+					<md-content layout-padding flex class="content" style="background-color: #353942">
+						<div class="tab" ng-include src="'assets/templates/tableMarkets.html'">
+						</div>
+					</md-content>
+				</div>
+				
+			</div>
+		</div>
+		<div flex=50 flex-xs=100 flex-sm=50 flex-md=50 flex-lg=75 flex-xl=80 class="full-height" style="overflow-y: scroll; background-color: #0f131b" ng-hide="expanded">
+			<div layout=column layout-wrap>
+				<div flex=100>
+					<div layout=row layout-wrap>
+						<div flex=100 flex-xs=100 flex-sm=100 flex-md=100 flex-lg=50 flex-xl=33 ng-repeat="visibleMarket in markets | customShowMarket" style="padding: 6px 0px" ng-include src="'assets/templates/cardMarket.html'">
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
